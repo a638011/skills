@@ -1,0 +1,11 @@
+{
+  "owner": "jimihford",
+  "slug": "openclaw-bitwarden",
+  "displayName": "Bitwarden",
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 1769899433301,
+    "commit": null
+  },
+  "history": []
+}
