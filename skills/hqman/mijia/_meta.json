@@ -3,9 +3,15 @@
   "slug": "mijia",
   "displayName": "Mijia",
   "latest": {
-    "version": "0.1.1",
-    "publishedAt": 1769760111857,
-    "commit": "https://github.com/clawdbot/skills/commit/7151f3a0f772feaa23e4b3e028485e2ae0d6b210"
+    "version": "0.1.0",
+    "publishedAt": 1769910345187,
+    "commit": null
   },
-  "history": []
+  "history": [
+    {
+      "version": "0.1.1",
+      "publishedAt": 1769760111857,
+      "commit": "https://github.com/clawdbot/skills/commit/7151f3a0f772feaa23e4b3e028485e2ae0d6b210"
+    }
+  ]
 }
