@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 
 async function fetchDocxContent(documentId, accessToken) {
   // 1. Get document info for title
@@ -100,6 +99,8 @@ function convertBlocksToMarkdown(blocks) {
         break;
       default:
         // Ignore unknown blocks for now
+        console.error(`Skipped block type: ${type}`, JSON.stringify(block).substring(0, 200));
+        md.push(`[UNSUPPORTED BLOCK TYPE: ${type}]`);
         break;
     }
   }
