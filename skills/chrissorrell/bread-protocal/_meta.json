@@ -3,9 +3,15 @@
   "slug": "bread-protocal",
   "displayName": "Bread Protocal",
   "latest": {
-    "version": "1.0.2",
-    "publishedAt": 1769918429976,
-    "commit": "https://github.com/clawdbot/skills/commit/c725d2eebbda6a45f371c86395b5979d0641bf66"
+    "version": "1.0.3",
+    "publishedAt": 1769951608435,
+    "commit": null
   },
-  "history": []
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1769918429976,
+      "commit": "https://github.com/clawdbot/skills/commit/c725d2eebbda6a45f371c86395b5979d0641bf66"
+    }
+  ]
 }
