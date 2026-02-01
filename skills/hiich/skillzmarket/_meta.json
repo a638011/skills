@@ -3,9 +3,15 @@
   "slug": "skillzmarket",
   "displayName": "SkillzMarket",
   "latest": {
-    "version": "1.0.2",
-    "publishedAt": 1769890180008,
-    "commit": "https://github.com/clawdbot/skills/commit/c4b8c11c8292d864e7613f2a746863e27bca838c"
+    "version": "1.0.5",
+    "publishedAt": 1769971463417,
+    "commit": null
   },
-  "history": []
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1769890180008,
+      "commit": "https://github.com/clawdbot/skills/commit/c4b8c11c8292d864e7613f2a746863e27bca838c"
+    }
+  ]
 }
