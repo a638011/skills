@@ -1,5 +1,5 @@
 /**
- * ClawdLink Delivery Preferences
+ * ClawPhone Delivery Preferences
  * 
  * Controls how and when messages are delivered to the user.
  * Respects quiet hours, batching, urgency, and personal style.
@@ -9,7 +9,7 @@ import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 const PREFS_FILE = join(DATA_DIR, 'preferences.json');
 const HELD_FILE = join(DATA_DIR, 'held_messages.json');
 

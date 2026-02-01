@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ClawdLink Poll
+ * ClawPhone Poll
  * Check for new messages from the relay
  */
 
@@ -9,7 +9,7 @@ import { homedir } from 'os';
 import { join } from 'path';
 import relay from '../lib/relay.js';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 const FRIENDS_FILE = join(DATA_DIR, 'friends.json');
 const INBOX_DIR = join(DATA_DIR, 'inbox');
@@ -48,7 +48,7 @@ async function main() {
   const jsonOutput = args.includes('--json');
 
   if (!jsonOutput) {
-    console.log('📥 ClawdLink Poll');
+    console.log('📥 ClawPhone Poll');
     console.log('='.repeat(50));
   }
 

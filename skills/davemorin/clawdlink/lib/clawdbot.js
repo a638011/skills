@@ -1,7 +1,7 @@
 /**
- * ClawdLink Clawdbot Integration
+ * ClawPhone Clawdbot Integration
  * 
- * Functions for integrating ClawdLink with Clawdbot:
+ * Functions for integrating ClawPhone with Clawdbot:
  * - Poll and format messages for chat delivery
  * - Handle friend requests in conversation
  * - Send messages from natural language
@@ -13,7 +13,7 @@ import { join } from 'path';
 import relay from './relay.js';
 import requests from './requests.js';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 const FRIENDS_FILE = join(DATA_DIR, 'friends.json');
 const CONFIG_FILE = join(DATA_DIR, 'config.json');
@@ -32,7 +32,7 @@ function loadFriends() {
 }
 
 function loadConfig() {
-  if (!existsSync(CONFIG_FILE)) return { displayName: 'ClawdLink User' };
+  if (!existsSync(CONFIG_FILE)) return { displayName: 'ClawPhone User' };
   return JSON.parse(readFileSync(CONFIG_FILE, 'utf8'));
 }
 
@@ -44,7 +44,7 @@ export async function checkMessages() {
   if (!isSetup()) {
     return { 
       setup: false, 
-      message: 'ClawdLink is not set up. Run: clawdlink setup "Your Name"' 
+      message: 'ClawPhone is not set up. Run: clawphone setup "Your Name"' 
     };
   }
 
@@ -99,7 +99,7 @@ export async function checkMessages() {
  */
 export async function sendToFriend(friendName, messageText, options = {}) {
   if (!isSetup()) {
-    return { success: false, error: 'ClawdLink not set up' };
+    return { success: false, error: 'ClawPhone not set up' };
   }
 
   const identity = loadIdentity();
@@ -163,7 +163,7 @@ export async function sendToFriend(friendName, messageText, options = {}) {
  */
 export async function addFriend(friendLink, message = '') {
   if (!isSetup()) {
-    return { success: false, error: 'ClawdLink not set up' };
+    return { success: false, error: 'ClawPhone not set up' };
   }
 
   try {
@@ -171,7 +171,7 @@ export async function addFriend(friendLink, message = '') {
     return {
       success: true,
       to: result.to,
-      formatted: `✓ Friend request sent to ${result.to}. They'll receive it when they check ClawdLink.`
+      formatted: `✓ Friend request sent to ${result.to}. They'll receive it when they check ClawPhone.`
     };
   } catch (err) {
     return { success: false, error: err.message };
@@ -183,7 +183,7 @@ export async function addFriend(friendLink, message = '') {
  */
 export async function acceptFriend(nameOrId) {
   if (!isSetup()) {
-    return { success: false, error: 'ClawdLink not set up' };
+    return { success: false, error: 'ClawPhone not set up' };
   }
 
   const pending = requests.getPendingRequests();
@@ -220,7 +220,7 @@ export async function acceptFriend(nameOrId) {
  */
 export function getFriendLink() {
   if (!isSetup()) {
-    return { success: false, error: 'ClawdLink not set up' };
+    return { success: false, error: 'ClawPhone not set up' };
   }
 
   const identity = loadIdentity();
@@ -233,7 +233,7 @@ export function getFriendLink() {
 
   return {
     success: true,
-    link: `clawdlink://relay.clawdlink.bot/add?${params.toString()}`,
+    link: `clawphone://relay.clawphone.bot/add?${params.toString()}`,
     name: config.displayName
   };
 }
@@ -243,7 +243,7 @@ export function getFriendLink() {
  */
 export function listFriends() {
   if (!isSetup()) {
-    return { success: false, error: 'ClawdLink not set up' };
+    return { success: false, error: 'ClawPhone not set up' };
   }
 
   const { friends } = loadFriends();

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ClawdLink Preferences Manager
+ * ClawPhone Preferences Manager
  * 
  * Configure delivery preferences interactively or via command line.
  */
@@ -10,7 +10,7 @@ import { homedir } from 'os';
 import { join } from 'path';
 import prefs from '../lib/preferences.js';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 
 const args = process.argv.slice(2);
@@ -23,7 +23,7 @@ function showPreferences() {
 
 function showHelp() {
   console.log(`
-🔗 ClawdLink Preferences
+🔗 ClawPhone Preferences
 
 Commands:
   show                        Show all preferences
@@ -51,7 +51,7 @@ Examples:
 
 function main() {
   if (!existsSync(IDENTITY_FILE)) {
-    console.error('ClawdLink not set up. Run: node cli.js setup "Your Name"');
+    console.error('ClawPhone not set up. Run: node cli.js setup "Your Name"');
     process.exit(1);
   }
 

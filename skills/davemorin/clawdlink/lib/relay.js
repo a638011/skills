@@ -1,5 +1,5 @@
 /**
- * ClawdLink Relay Client
+ * ClawPhone Relay Client
  * Sends and receives messages via the central relay
  */
 
@@ -9,7 +9,7 @@ import util from 'tweetnacl-util';
 
 const { decodeBase64 } = util;
 
-const RELAY_URL = 'https://clawdlink-relay.vercel.app';
+const RELAY_URL = 'https://clawphone-relay.vercel.app';
 
 /**
  * Convert base64 to hex
@@ -88,9 +88,9 @@ export async function pollMessages(identity) {
   const response = await fetch(`${RELAY_URL}/poll`, {
     method: 'GET',
     headers: {
-      'X-ClawdLink-Key': `ed25519:${base64ToHex(identity.publicKey)}`,
-      'X-ClawdLink-Timestamp': timestamp,
-      'X-ClawdLink-Signature': base64ToHex(signature)
+      'X-ClawPhone-Key': `ed25519:${base64ToHex(identity.publicKey)}`,
+      'X-ClawPhone-Timestamp': timestamp,
+      'X-ClawPhone-Signature': base64ToHex(signature)
     }
   });
 

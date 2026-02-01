@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ClawdLink Friends Manager
+ * ClawPhone Friends Manager
  * Add, list, and manage friends
  */
 
@@ -9,7 +9,7 @@ import { homedir } from 'os';
 import { join } from 'path';
 import crypto from '../lib/crypto.js';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 const FRIENDS_FILE = join(DATA_DIR, 'friends.json');
 const CONFIG_FILE = join(DATA_DIR, 'config.json');
@@ -34,19 +34,19 @@ function saveFriends(data) {
 
 function loadConfig() {
   if (!existsSync(CONFIG_FILE)) {
-    return { displayName: 'ClawdLink User' };
+    return { displayName: 'ClawPhone User' };
   }
   return JSON.parse(readFileSync(CONFIG_FILE, 'utf8'));
 }
 
 /**
  * Parse a friend link
- * Format: clawdlink://<relay-url>/add?key=ed25519:<pubkey>&name=<name>
+ * Format: clawphone://<relay-url>/add?key=ed25519:<pubkey>&name=<name>
  */
 function parseFriendLink(link) {
   try {
-    // Handle both clawdlink:// and https:// formats
-    const url = new URL(link.replace('clawdlink://', 'https://'));
+    // Handle both clawphone:// and https:// formats
+    const url = new URL(link.replace('clawphone://', 'https://'));
     const params = new URLSearchParams(url.search);
     
     let key = params.get('key') || '';
@@ -75,7 +75,7 @@ function generateFriendLink(identity, config) {
     key: `ed25519:${identity.publicKey}`,
     name: config.displayName
   });
-  return `clawdlink://relay.clawdlink.bot/add?${params.toString()}`;
+  return `clawphone://relay.clawphone.bot/add?${params.toString()}`;
 }
 
 /**
@@ -212,7 +212,7 @@ switch (command) {
     break;
     
   default:
-    console.log('ClawdLink Friends Manager');
+    console.log('ClawPhone Friends Manager');
     console.log('');
     console.log('Commands:');
     console.log('  add <link>     Add a friend from their link');

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Create a test identity for testing ClawdLink
+ * Create a test identity for testing ClawPhone
  */
 
 import crypto from '../lib/crypto.js';
@@ -8,8 +8,8 @@ import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
 
-const TEST_DIR = '/tmp/clawdlink-test';
-const REAL_DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const TEST_DIR = '/tmp/clawphone-test';
+const REAL_DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 
 // Create test identity
 mkdirSync(TEST_DIR, { recursive: true });

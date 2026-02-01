@@ -1,5 +1,5 @@
 /**
- * ClawdLink Crypto Library
+ * ClawPhone Crypto Library
  * Ed25519 for identity/signing, X25519 for key exchange, XChaCha20-Poly1305 for messages
  */
 

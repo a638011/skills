@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ClawdLink Setup
+ * ClawPhone Setup
  * Generates identity, sets up data directory, starts tunnel
  */
 
@@ -9,7 +9,7 @@ import { homedir } from 'os';
 import { join } from 'path';
 import crypto from '../lib/crypto.js';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 const FRIENDS_FILE = join(DATA_DIR, 'friends.json');
 const CONFIG_FILE = join(DATA_DIR, 'config.json');
@@ -82,7 +82,7 @@ function setupConfig(name) {
   }
 
   if (!config.displayName) {
-    config.displayName = 'ClawdLink User';
+    config.displayName = 'ClawPhone User';
     writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
   }
 
@@ -98,14 +98,14 @@ function generateFriendLink(identity, config, tunnelUrl) {
     key: `ed25519:${identity.publicKey}`,
     name: config.displayName
   });
-  return `clawdlink://${tunnelUrl}/add?${params.toString()}`;
+  return `clawphone://${tunnelUrl}/add?${params.toString()}`;
 }
 
 /**
  * Main setup
  */
 async function main() {
-  console.log('🔗 ClawdLink Setup');
+  console.log('🔗 ClawPhone Setup');
   console.log('='.repeat(50));
 
   const args = process.argv.slice(2);
@@ -119,7 +119,7 @@ async function main() {
 
   console.log('');
   console.log('='.repeat(50));
-  console.log('✓ ClawdLink setup complete!');
+  console.log('✓ ClawPhone setup complete!');
   console.log('');
   console.log('Next: Start the tunnel with `node scripts/tunnel.js`');
   console.log('');

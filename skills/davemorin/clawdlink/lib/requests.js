@@ -1,5 +1,5 @@
 /**
- * ClawdLink Friend Request Protocol
+ * ClawPhone Friend Request Protocol
  * 
  * Flow:
  * 1. Alice parses Bob's friend link
@@ -15,7 +15,7 @@ import { join } from 'path';
 import crypto from './crypto.js';
 import relay from './relay.js';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 const FRIENDS_FILE = join(DATA_DIR, 'friends.json');
 const CONFIG_FILE = join(DATA_DIR, 'config.json');
@@ -26,7 +26,7 @@ function loadIdentity() {
 }
 
 function loadConfig() {
-  if (!existsSync(CONFIG_FILE)) return { displayName: 'ClawdLink User' };
+  if (!existsSync(CONFIG_FILE)) return { displayName: 'ClawPhone User' };
   return JSON.parse(readFileSync(CONFIG_FILE, 'utf8'));
 }
 
@@ -52,7 +52,7 @@ function savePending(data) {
  * Parse a friend link
  */
 export function parseFriendLink(link) {
-  const url = new URL(link.replace('clawdlink://', 'https://'));
+  const url = new URL(link.replace('clawphone://', 'https://'));
   const params = new URLSearchParams(url.search);
   
   let key = params.get('key') || '';
@@ -88,7 +88,7 @@ export async function sendFriendRequest(friendLink, message = '') {
   const fromHex = relay.base64ToHex(identity.publicKey);
   const toHex = relay.base64ToHex(publicKey);
   const fromX25519Hex = relay.base64ToHex(identity.x25519PublicKey);
-  const msg = message || `${config.displayName} wants to connect on ClawdLink`;
+  const msg = message || `${config.displayName} wants to connect on ClawPhone`;
   
   const signPayload = `${fromHex}:${toHex}:${config.displayName}:${msg}`;
   const signature = crypto.sign(signPayload, identity.secretKey);
@@ -138,9 +138,9 @@ export async function fetchFriendRequests() {
   const response = await fetch(`${relay.RELAY_URL}/requests`, {
     method: 'GET',
     headers: {
-      'X-ClawdLink-Key': `ed25519:${relay.base64ToHex(identity.publicKey)}`,
-      'X-ClawdLink-Timestamp': timestamp,
-      'X-ClawdLink-Signature': relay.base64ToHex(signature)
+      'X-ClawPhone-Key': `ed25519:${relay.base64ToHex(identity.publicKey)}`,
+      'X-ClawPhone-Timestamp': timestamp,
+      'X-ClawPhone-Signature': relay.base64ToHex(signature)
     }
   });
   

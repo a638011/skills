@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ClawdLink Handler
+ * ClawPhone Handler
  * JSON API for Clawdbot integration
  * 
  * Usage: node handler.js <action> [args...]
@@ -57,7 +57,7 @@ async function main() {
       break;
 
     case 'add':
-      // Add friend: node handler.js add "clawdlink://..." ["optional message"]
+      // Add friend: node handler.js add "clawphone://..." ["optional message"]
       if (!args[1]) {
         result = { success: false, error: 'Usage: add <friend-link> [message]' };
       } else {
@@ -156,7 +156,7 @@ async function main() {
           accept: 'accept <friend-name>',
           link: 'Get your friend link',
           friends: 'List friends',
-          status: 'Get ClawdLink status',
+          status: 'Get ClawPhone status',
           preferences: 'preferences [set <path> <value>]',
           'quiet-hours': 'quiet-hours [on|off|<start> <end>]',
           batch: 'batch [on|off]',

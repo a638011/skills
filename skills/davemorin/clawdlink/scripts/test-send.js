@@ -7,7 +7,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import relay from '../lib/relay.js';
 import crypto from '../lib/crypto.js';
 
-const TEST_DIR = '/tmp/clawdlink-test';
+const TEST_DIR = '/tmp/clawphone-test';
 
 const identity = JSON.parse(readFileSync(`${TEST_DIR}/identity.json`, 'utf8'));
 identity.displayName = 'Matt Test';

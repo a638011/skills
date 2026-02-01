@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ClawdLink Heartbeat Handler
+ * ClawPhone Heartbeat Handler
  * 
  * Called periodically by Clawdbot heartbeat.
  * Respects delivery preferences, quiet hours, and batching.
@@ -29,7 +29,7 @@ async function main() {
     const result = await clawdbot.checkMessages();
     
     if (result.error) {
-      console.error(`ClawdLink error: ${result.error}`);
+      console.error(`ClawPhone error: ${result.error}`);
       return;
     }
     
@@ -99,11 +99,11 @@ async function main() {
     
     // Log holds (for debugging, stderr so it doesn't affect output)
     if (toHold.length > 0) {
-      console.error(`ClawdLink: Held ${toHold.length} message(s) for later delivery`);
+      console.error(`ClawPhone: Held ${toHold.length} message(s) for later delivery`);
     }
     
   } catch (err) {
-    console.error(`ClawdLink heartbeat error: ${err.message}`);
+    console.error(`ClawPhone heartbeat error: ${err.message}`);
   }
 }
 

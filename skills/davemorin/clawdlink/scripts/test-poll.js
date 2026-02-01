@@ -6,7 +6,7 @@
 import { readFileSync } from 'fs';
 import relay from '../lib/relay.js';
 
-const TEST_DIR = '/tmp/clawdlink-test';
+const TEST_DIR = '/tmp/clawphone-test';
 
 const identity = JSON.parse(readFileSync(`${TEST_DIR}/identity.json`, 'utf8'));
 const { friends } = JSON.parse(readFileSync(`${TEST_DIR}/friends.json`, 'utf8'));

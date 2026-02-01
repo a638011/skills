@@ -1,5 +1,5 @@
 /**
- * ClawdLink Style Adaptation
+ * ClawPhone Style Adaptation
  * 
  * Adapts message presentation to recipient's preferred communication style.
  * This is about HOW messages are presented, not changing content.

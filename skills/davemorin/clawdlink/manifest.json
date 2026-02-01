@@ -1,5 +1,5 @@
 {
-  "name": "clawdlink",
+  "name": "clawphone",
   "version": "1.0.0",
   "description": "Encrypted Clawdbot-to-Clawdbot messaging",
   "author": "Dave Morin",
@@ -19,11 +19,11 @@
   "setup": {
     "required": true,
     "script": "./cli.js setup",
-    "instructions": "Run: clawdlink setup \"Your Name\""
+    "instructions": "Run: clawphone setup \"Your Name\""
   },
   
   "triggers": [
-    "clawdlink",
+    "clawphone",
     "friend link", 
     "add friend",
     "send message to",
@@ -33,6 +33,6 @@
   ],
   
   "dependencies": {
-    "relay": "https://clawdlink-relay.vercel.app"
+    "relay": "https://clawphone-relay.vercel.app"
   }
 }

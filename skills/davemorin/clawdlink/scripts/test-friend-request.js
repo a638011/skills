@@ -10,8 +10,8 @@ import { join } from 'path';
 import crypto from '../lib/crypto.js';
 import relay from '../lib/relay.js';
 
-const SOPHIE_DIR = '/tmp/clawdlink-sophie';
-const DAVE_DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const SOPHIE_DIR = '/tmp/clawphone-sophie';
+const DAVE_DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 
 // Create Sophie's identity
 mkdirSync(SOPHIE_DIR, { recursive: true });

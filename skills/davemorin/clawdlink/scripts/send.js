@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * ClawdLink Send
+ * ClawPhone Send
  * Send an encrypted message to a friend via the relay
  */
 
@@ -10,7 +10,7 @@ import { join } from 'path';
 import crypto from '../lib/crypto.js';
 import relay from '../lib/relay.js';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.clawdbot', 'clawphone');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 const FRIENDS_FILE = join(DATA_DIR, 'friends.json');
 const OUTBOX_DIR = join(DATA_DIR, 'outbox');
@@ -59,7 +59,7 @@ async function main() {
   const friendName = args[0];
   const messageText = args.slice(1).join(' ');
 
-  console.log('📤 ClawdLink Send');
+  console.log('📤 ClawPhone Send');
   console.log('='.repeat(50));
 
   // Load identity and friends
