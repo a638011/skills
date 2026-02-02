@@ -1,0 +1,11 @@
+{
+  "owner": "claw-mail",
+  "slug": "clawmail-skill",
+  "displayName": "ClawMail",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1769984751527,
+    "commit": null
+  },
+  "history": []
+}
