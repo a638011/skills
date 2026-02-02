@@ -26,7 +26,7 @@ struct ContentView: View {
             PKPage { Text("Page 2").font(.title) }
             PKPage { Text("Page 3").font(.title) }
         }
-        .pkCurrentPageIndex($currentPage)
+        .pkCurrentPageIndex(index: $currentPage)
     }
 }
 ```
@@ -76,11 +76,11 @@ You can provide custom images for the page indicators.
 ```swift
 PKPagesView {
     PKPage { Text("Page 1") }
-        .pkPageIndicatorImage(Image(systemName: "heart"))
-        .pkPageCurrentIndicatorImage(Image(systemName: "heart.fill"))
+        .pkPageIndicatorImage(image: Image(systemName: "heart"))
+        .pkPageCurrentIndicatorImage(image: Image(systemName: "heart.fill"))
     PKPage { Text("Page 2") }
-        .pkPageIndicatorImage(Image(systemName: "star"))
-        .pkPageCurrentIndicatorImage(Image(systemName: "star.fill"))
+        .pkPageIndicatorImage(image: Image(systemName: "star"))
+        .pkPageCurrentIndicatorImage(image: Image(systemName: "star.fill"))
 }
 .pkPageControlIndicatorTintColor(.gray)
 ```
