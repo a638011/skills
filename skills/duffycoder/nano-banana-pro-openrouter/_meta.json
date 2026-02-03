@@ -1,11 +1,17 @@
 {
   "owner": "duffycoder",
   "slug": "nano-banana-pro-openrouter",
-  "displayName": "nano-banana-pro-openrouter",
+  "displayName": "Nano Banana Pro OpenRouter",
   "latest": {
-    "version": "1.0.0",
-    "publishedAt": 1770032132075,
-    "commit": "https://github.com/clawdbot/skills/commit/006f7bb1fd9fa1f5718932c8e8b12a3e6a9f9dba"
+    "version": "1.0.1",
+    "publishedAt": 1770104417525,
+    "commit": null
   },
-  "history": []
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1770032132075,
+      "commit": "https://github.com/clawdbot/skills/commit/006f7bb1fd9fa1f5718932c8e8b12a3e6a9f9dba"
+    }
+  ]
 }

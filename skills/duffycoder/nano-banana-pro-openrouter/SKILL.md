@@ -1,11 +1,11 @@
 ---
 name: nano-banana-pro-openrouter
-description: Generate or edit images with Nano Banana Pro via OpenRouter. Use when the user asks for image generation or edits, mentions Nano Banana Pro, Gemini 3 Pro Image, or OpenRouter image generation.
+description: Generate images with Nano Banana Pro via OpenRouter. Use when the user asks for image generation, mentions Nano Banana Pro, Gemini 3 Pro Image, or OpenRouter image generation.
 ---
 
-# Nano Banana Pro Image Generation and Editing
+# Nano Banana Pro Image Generation
 
-Generate new images or edit existing ones using OpenRouter's Nano Banana Pro (Gemini 3 Pro Image Preview).
+Generate new images using OpenRouter's Nano Banana Pro (Gemini 3 Pro Image Preview).
 
 ## Usage
 
@@ -13,13 +13,9 @@ Run the script using an absolute path (do NOT cd to the skill directory first):
 
 Generate new image:
 ```bash
-uv run ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.py --prompt "your image description" [--filename "output-name.png" | --filename auto] [--resolution 1K|2K|4K] [--api-key KEY]
+sh ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.sh --prompt "your image description" [--filename "output-name.png" | --filename auto] [--resolution 1K|2K|4K] [--api-key KEY]
 ```
-
-Edit existing image:
-```bash
-uv run ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.py --prompt "editing instructions" [--filename "output-name.png" | --filename auto] --input-image "path/to/input.png" [--resolution 1K|2K|4K] [--api-key KEY]
-```
+Note: the shell version currently supports generation only (no input image editing).
 
 Important:
 - Images are always saved under `~/.openclaw/workspace/outputs/nano-banana-pro-openrouter`
@@ -30,11 +26,10 @@ Important:
 Goal: fast iteration without burning time on 4K until the prompt is correct.
 
 - Draft (1K): quick feedback loop
-  - `uv run ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.py --prompt "<draft prompt>" --filename auto --resolution 1K`
+  - `sh ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.sh --prompt "<draft prompt>" --filename auto --resolution 1K`
 - Iterate: adjust prompt in small diffs; keep filename new per run
-  - If editing: keep the same `--input-image` for every iteration until you are happy.
 - Final (4K): only when prompt is locked
-  - `uv run ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.py --prompt "<final prompt>" --filename auto --resolution 4K`
+  - `sh ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.sh --prompt "<final prompt>" --filename auto --resolution 4K`
 
 ## Resolution Options
 
@@ -81,8 +76,9 @@ If neither is available, the script exits with an error message.
 ## Preflight and Common Failures (fast fixes)
 
 Preflight:
-- `command -v uv` (must exist)
-- If editing: `test -f "path/to/input.png"`
+- `command -v sh` (must exist)
+- `command -v curl` (must exist)
+- `command -v base64` (must exist)
 
 Common failures:
 - `Error: No API key provided.` -> read .env and retry with --api-key; if still failing, ask the user to set OPENROUTER_API_KEY
@@ -110,21 +106,13 @@ Examples:
 Tip: To avoid incorrect timestamps, pass `--filename auto` and let the script
 generate the filename using the system clock.
 
-## Image Editing
+## Image Editing (Not Supported in Shell Version)
 
-When the user wants to modify an existing image:
-1. Check if they provide an image path or reference an image in the current directory
-2. Use --input-image with the path to the image
-3. The prompt should contain editing instructions (e.g., "make the sky more dramatic", "remove the person", "change to cartoon style")
-4. Common editing tasks: add/remove elements, change style, adjust colors, blur background, etc.
+The shell script only supports generating new images. Editing an input image is not available in this version.
 
 ## Prompt Handling
 
 For generation: pass the user's image description as-is to --prompt. Only rework if clearly insufficient.
-
-For editing: pass editing instructions in --prompt (e.g., "add a rainbow in the sky", "make it look like a watercolor painting").
-
-Preserve the user's creative intent in both cases.
 
 ## Prompt Templates (high hit-rate)
 
@@ -132,9 +120,6 @@ Use templates when the user is vague or when edits must be precise.
 
 Generation template:
 - "Create an image of: <subject>. Style: <style>. Composition: <camera/shot>. Lighting: <lighting>. Background: <background>. Color palette: <palette>. Avoid: <list>."
-
-Editing template (preserve everything else):
-- "Change ONLY: <single change>. Keep identical: subject, composition/crop, pose, lighting, color palette, background, text, and overall style. Do not add new objects. If text exists, keep it unchanged."
 
 ## Output
 
@@ -153,10 +138,5 @@ Editing template (preserve everything else):
 
 Generate new image:
 ```bash
-uv run ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.py --prompt "A serene Japanese garden with cherry blossoms" --filename auto --resolution 4K
-```
-
-Edit existing image:
-```bash
-uv run ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.py --prompt "make the sky more dramatic with storm clouds" --filename auto --input-image "original-photo.jpg" --resolution 2K
+sh ~/.openclaw/workspace/skills/nano-banana-pro-openrouter/scripts/generate_image.sh --prompt "A serene Japanese garden with cherry blossoms" --filename auto --resolution 4K
 ```
