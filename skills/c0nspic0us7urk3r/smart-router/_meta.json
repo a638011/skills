@@ -3,9 +3,15 @@
   "slug": "smart-router",
   "displayName": "A.I. Smart Router",
   "latest": {
-    "version": "0.1.0",
-    "publishedAt": 1770132001111,
-    "commit": "https://github.com/clawdbot/skills/commit/af2c545a51d1c06fb4c5f71b2b2a948d48bf0d84"
+    "version": "0.1.1",
+    "publishedAt": 1770156146550,
+    "commit": null
   },
-  "history": []
+  "history": [
+    {
+      "version": "0.1.0",
+      "publishedAt": 1770132001111,
+      "commit": "https://github.com/clawdbot/skills/commit/af2c545a51d1c06fb4c5f71b2b2a948d48bf0d84"
+    }
+  ]
 }
